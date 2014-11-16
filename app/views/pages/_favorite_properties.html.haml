@@ -1,0 +1,34 @@
+#favorite.panel.panel-primary
+  .panel-heading
+    %h3.panel-title
+      %i.fa.fa-home.fa-fw>
+      = current_user.seeker? ? "Favorite properties" : "Your properties"
+  .panel-body
+    %ul.list-group
+      - properties.each do |property|
+        %li.list-group-item
+          .row
+            .col-xs-3.col-md-3.text-center
+              = image_tag property.image, class: "img-rounded img-responsive", size: "120x67"
+            .col-xs-9.col-md-9.section-box
+              %h5= link_to property.name, property_path(property)
+              %p= property.full_address
+    - if current_user.owner?
+      .text-right{:style => "padding-top: 5px; padding-bottom: 5px; padding-right: 3px;"}
+        %a.btn.btn-success.text-right{"aria-label" => "Right Align", :type => "button", :href => "/properties/new"}
+          Add a new property
+- if current_user.seeker?
+  #suggestions.panel.panel-primary
+    .panel-heading
+      %h3.panel-title
+        %i.fa.fa-lightbulb-o.fa-fw
+        Suggested properties
+    .panel-body
+      - Property.order("RANDOM()").first(3).each do |property|
+        %li.list-group-item
+          .row
+            .col-xs-3.col-md-3.text-center
+              = image_tag property.image, class: "img-rounded img-responsive", size: "120x67"
+            .col-xs-9.col-md-9.section-box
+              %h5= link_to property.name, property_path(property)
+              %p= property.full_address

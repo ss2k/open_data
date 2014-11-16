@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  resources :properties do
+    resources :favorites
+  end
+
+  resources :favorites
+
+  get "search", to: "pages#search"
+  post "post_property", to: "properties#post_property"
+  devise_for :users
+  root "pages#home"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

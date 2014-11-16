@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolink
+//= require bootstrap-sprockets
+//= require raphael
+//= require morris
+//= require gmaps/google
 //= require_tree .

@@ -1,0 +1,25 @@
+%section.col-xs-12.col-sm-6.col-md-12
+  - properties.first(10).each do |property|
+    %article.search-result.row
+      .col-xs-12.col-sm-12.col-md-3
+        %a.thumbnail{:href => "#", :title => "Property"}
+          = image_tag property.image, size: "250x140"
+      .col-xs-12.col-sm-12.col-md-2
+        %ul.meta-search
+          %li
+            %i.glyphicon.glyphicon-usd
+            %span=property.rent
+          %li
+            %i.glyphicon.glyphicon-home
+            %span="#{property.size} square meters"
+          %li
+            %i.glyphicon.glyphicon-globe
+            %span=property.city
+      .col-xs-12.col-sm-12.col-md-7.excerpet
+        %h3
+          = link_to property.name, property_path(property)
+        %p= property.full_address
+        %span.plus
+          %a{:href => "#", :title => "Lorem ipsum"}
+            %i.glyphicon.glyphicon-plus
+      %span.clearfix.border

@@ -1,0 +1,30 @@
+%h1=@property.name
+#property_details
+  .row
+    .col-lg-6
+      .panel.panel-success
+        .panel-heading
+          %h3.panel-title
+            Property Photo
+        .panel-body
+          %center
+            = image_tag @property.image
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            Property Details
+        .panel-body
+          .property_details
+            = "Size: #{@property.size} sm"
+            %br
+            = "Rent: $#{@property.rent}"
+            %br
+            = "Address: #{@property.full_address}"
+          #favorite_property.pull-right.property_details
+            - if current_user.favorite_properties.include?(@property)
+              Saved to favorites
+            - else
+              = simple_form_for [@property, @favorite], url: property_favorites_path(@property), remote: true do |f|
+                = f.button :submit, "Save to favorites", class: 'btn btn-success', id: 'favorite_property_link'
+= render "pages/charts"

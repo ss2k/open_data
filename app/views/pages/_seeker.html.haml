@@ -1,0 +1,16 @@
+.row
+  .col-lg-12
+    %ol.breadcrumb
+      %h2
+        %li.active
+          %i.fa.fa-home
+          Homebase
+.row
+  #left.col-lg-6
+    #map-container.panel.panel-success
+      .panel-heading Active Locations
+      .panel-body
+        #map-canvas
+          / =gmaps4rails(@hash)
+  .col-lg-6        
+    = render partial: "pages/favorite_properties", locals: { properties: @properties }

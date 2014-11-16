@@ -1,0 +1,4 @@
+%hgroup.mb20
+  %h2.lead
+    %strong.text-danger="#{@properties.size} properties are in your favorites"
+= render partial: "properties/list", locals: { properties: @properties}

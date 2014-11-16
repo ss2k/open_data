@@ -1,0 +1,8 @@
+%h1 Create a new property
+= simple_form_for @property do |f|
+  = f.input :add1, label: "Address 1"
+  = f.input :add2, label: "Address 2"
+  = f.input :city
+  = f.input :state, collection: @property.states
+  = f.input :zip
+  = f.submit

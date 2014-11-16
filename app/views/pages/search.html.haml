@@ -1,0 +1,6 @@
+%hgroup.mb20
+  %h1="Search Results for #{@query}"
+  %h2.lead
+    %strong.text-danger="#{@properties.size} properties found"
+= render partial: "properties/list", locals: { properties: @properties}
+= render "pages/charts"

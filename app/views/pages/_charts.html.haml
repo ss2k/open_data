@@ -1,0 +1,29 @@
+#myStats.row
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title
+          %i.fa.fa-long-arrow-right
+          Gender breakdown
+      .panel-body
+        #morris-donut-chart
+        .text-right
+          %a{:href => "#"}
+            View Details
+            %i.fa.fa-arrow-circle-right
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title
+          %i.fa.fa-bar-chart-o
+          Spending timeline
+      .panel-body
+        #morris-area-chart
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title
+          %i.fa.fa-bar-chart-o
+          Top Expense Categories
+      .panel-body
+        #morris-bar-chart
